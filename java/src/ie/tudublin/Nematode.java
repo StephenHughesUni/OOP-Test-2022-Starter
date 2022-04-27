@@ -44,6 +44,11 @@ public class Nematode {
     public void setEyes(int eyes) {
         this.eyes = eyes;
     }
+    @Override
+    public String toString() {
+        return "Nematode [eyes=" + eyes + ", gender=" + gender + ", length=" + length + ", limbs=" + limbs + ", name="
+                + name + "]";
+    }
 
 }
 
