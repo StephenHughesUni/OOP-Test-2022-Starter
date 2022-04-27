@@ -28,7 +28,10 @@ public class NematodeVisualiser extends PApplet
 	{
 		colorMode(HSB);
 		background(0);
-		smooth();				
+		smooth();		
+		
+		loadNematodes();
+		displayNematode();
 	}
 	
 
@@ -53,5 +56,6 @@ public class NematodeVisualiser extends PApplet
 
 	public void draw()
 	{	
+		background(0);
 	}
 }

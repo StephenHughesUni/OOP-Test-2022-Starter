@@ -60,11 +60,11 @@ public class Nematode {
     public Nematode(TableRow tr)
     {
         this(
-            tr.getString("Name"),
-            tr.getInt("Length"),
-            tr.getInt("Limbs"),
-            tr.getString("Gender"),
-            tr.getInt("Eyes")
+            tr.getString("name"),
+            tr.getInt("length"),
+            tr.getInt("limbs"),
+            tr.getString("gender"),
+            tr.getInt("eyes")
         );
     }
 
@@ -79,4 +79,3 @@ public class Nematode {
         this.eyes = eyes;
     }
 }
-
