@@ -1,5 +1,6 @@
 package ie.tudublin;
 
+import java.lang.StackWalker.Option;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
@@ -13,12 +14,21 @@ public class NematodeVisualiser extends PApplet
 
 	int choice = 0;
 
-	public void keyPressed()
-	{		
-		if (keyCode == LEFT)
-		{
-		}		
-	}
+    public void keyPressed()
+    {
+        if (keyCode == LEFT) {
+            if(choice == 0) {
+                choice = nematodes.size() - 1;
+            }
+            choice--;
+        }
+        if (keyCode == RIGHT) {
+            if(choice == nematodes.size() - 1) {
+                choice = 0;
+            }
+            choice++;
+        }
+    }
 
 
 	public void settings()
