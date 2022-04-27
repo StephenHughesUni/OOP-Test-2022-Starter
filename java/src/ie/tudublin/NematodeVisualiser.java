@@ -11,6 +11,8 @@ public class NematodeVisualiser extends PApplet
 
 	ArrayList<Nematode> nematodes = new ArrayList<Nematode>();
 
+	int choice = 0;
+
 	public void keyPressed()
 	{		
 		if (keyCode == LEFT)
@@ -55,15 +57,19 @@ public class NematodeVisualiser extends PApplet
 		}
 	}
 
-	public void draw()
-	{	
-		background(0);
-		stroke(0,0,255);
-		//drawArrowLeft(300,300,170,290);		
-		drawArrowRight(300,300,170,290);		
-		stroke(0,0,255);
+	public void drawNematode(int index, float t)
+	{
+		nematodes.get(choice).render(this, t); // gets the current choice of nematode and renders
 	}
 
+	public void draw()
+	{	
+		//drawArrowRight(30, 50, 50, 50); ignore for now
+		drawNematode(choice, map(choice, 0, nematodes.size(),0, 220)); 
+	}
+
+
+	// Arrows for later to change nematoad
 	void drawArrowRight(int x, int y, int len, float angle){
 		translate(x, y);
 		line(0,0,len, 0);

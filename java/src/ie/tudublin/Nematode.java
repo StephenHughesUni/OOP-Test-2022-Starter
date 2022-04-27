@@ -47,6 +47,23 @@ public class Nematode {
         this.eyes = eyes;
     }
 
+    public void render(NematodeVisualiser pa, float t)
+    {
+        pa.background(0);
+        int nemWidth = 30;
+        int textSize = 20;
+
+        pa.noFill();
+        pa.stroke(255);
+        pa.ellipseMode(PApplet.CENTER);
+        pa.textSize(textSize);
+        pa.textAlign(PApplet.CENTER, PApplet.CENTER);
+
+        //Jun should display as first name due to being first in csv file.
+        pa.text(name, pa.width/2, (pa.height/2 - (nemWidth * length/2) - (textSize)));
+
+    }
+
     @Override
     public String toString() {
         return "Nematode [eyes=" + eyes + ", gender=" + gender + ", length=" + length + ", limbs=" + limbs + ", name="
@@ -70,7 +87,7 @@ public class Nematode {
 
 
     // Processor table contruct TabelRow
-    // Above was not working until added
+    // Above was not working until this got added
     public Nematode(String name, float length, boolean limbs, String gender, boolean eyes) {
         this.name = name;
         this.length = length;
