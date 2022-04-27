@@ -11,9 +11,11 @@ public class Nematode {
     private String name;
     private int length;
     private int limbs;
-    private char gender;
+    private String gender;
     private int eyes;
 
+
+    // Accessor Methods - Getters and Setters 
     public String getName() {
         return name;
     }
@@ -32,10 +34,10 @@ public class Nematode {
     public void setLimbs(int limbs) {
         this.limbs = limbs;
     }
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
     public int getEyes() {
@@ -44,11 +46,37 @@ public class Nematode {
     public void setEyes(int eyes) {
         this.eyes = eyes;
     }
+
     @Override
     public String toString() {
         return "Nematode [eyes=" + eyes + ", gender=" + gender + ", length=" + length + ", limbs=" + limbs + ", name="
                 + name + "]";
     }
 
+
+    // Thought that gender was Char but process does not support.
+
+    // Class constructor 
+    public Nematode(TableRow tr)
+    {
+        this(
+            tr.getString("Name"),
+            tr.getInt("Length"),
+            tr.getInt("Limbs"),
+            tr.getString("Gender"),
+            tr.getInt("Eyes")
+        );
+    }
+
+
+    // Processor table contruct TabelRow
+    // Above was not working until added
+    public Nematode(String name, int length, int limbs, String gender, int eyes) {
+        this.name = name;
+        this.length = length;
+        this.limbs = limbs;
+        this.gender = gender;
+        this.eyes = eyes;
+    }
 }
 
