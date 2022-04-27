@@ -53,6 +53,10 @@ public class Nematode {
         int nemWidth = 30;
         int textSize = 20;
 
+        float cellSize = 20;
+        float y, x = pa.width /2;
+        float cellbord = (pa.height - (length * cellSize)) / 2;
+
         pa.noFill();
         pa.stroke(255);
         pa.ellipseMode(PApplet.CENTER);
@@ -62,6 +66,24 @@ public class Nematode {
         //Jun should display as first name due to being first in csv file.
         pa.text(name, pa.width/2, (pa.height/2 - (nemWidth * length/2) - (textSize)));
 
+
+        // for circles and lines from cell 
+        for (int i = 0; i < length; i++)
+        {
+            y = PApplet.map(i, 0, length, cellbord, pa.height - cellbord);
+
+
+            // circle of cell
+            pa.circle(x, y, cellSize);
+
+
+            if (limbs == true) // limbs of cell
+            {
+                pa.line(x - cellSize / 3, y, x - cellSize / 4 - 20, y);
+                pa.line(x + cellSize / 3, y, x + cellSize / 4 + 20, y);
+            }
+        }
+        
     }
 
     @Override

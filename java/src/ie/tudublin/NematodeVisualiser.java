@@ -14,7 +14,7 @@ public class NematodeVisualiser extends PApplet
 
 	int choice = 0;
 
-    public void keyPressed()
+    public void keyPressed() // change size on keypress
     {
         if (keyCode == LEFT) {
             if(choice == 0) {
@@ -74,12 +74,12 @@ public class NematodeVisualiser extends PApplet
 
 	public void draw()
 	{	
-		//drawArrowRight(30, 50, 50, 50); ignore for now
+		//drawArrowRight(); ignore for now
 		drawNematode(choice, map(choice, 0, nematodes.size(),0, 220)); 
 	}
 
 
-	// Arrows for later to change nematoad
+	// Arrows for later to change nematoad - was going to have visuals but did not finish.
 	void drawArrowRight(int x, int y, int len, float angle){
 		translate(x, y);
 		line(0,0,len, 0);
