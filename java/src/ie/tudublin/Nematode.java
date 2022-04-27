@@ -9,10 +9,10 @@ import processing.data.TableRow;
 public class Nematode {
 
     private String name;
-    private int length;
-    private int limbs;
+    private float length;
+    private boolean limbs;
     private String gender;
-    private int eyes;
+    private boolean eyes;
 
 
     // Accessor Methods - Getters and Setters 
@@ -22,16 +22,16 @@ public class Nematode {
     public void setName(String name) {
         this.name = name;
     }
-    public int getLength() {
+    public float getLength() {
         return length;
     }
     public void setLength(int length) {
         this.length = length;
     }
-    public int getLimbs() {
+    public boolean getLimbs() {
         return limbs;
     }
-    public void setLimbs(int limbs) {
+    public void setLimbs(boolean limbs) {
         this.limbs = limbs;
     }
     public String getGender() {
@@ -40,10 +40,10 @@ public class Nematode {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    public int getEyes() {
+    public boolean getEyes() {
         return eyes;
     }
-    public void setEyes(int eyes) {
+    public void setEyes(boolean eyes) {
         this.eyes = eyes;
     }
 
@@ -54,24 +54,24 @@ public class Nematode {
     }
 
 
-    // Thought that gender was Char but process does not support.
-
+    // Thought that gender was Char but process does not support in processing.
+    // Changed from int to float, limbs + eyes to bool.
     // Class constructor 
     public Nematode(TableRow tr)
     {
         this(
             tr.getString("name"),
-            tr.getInt("length"),
-            tr.getInt("limbs"),
+            tr.getFloat("length"),
+            tr.getInt("limbs") == 1,
             tr.getString("gender"),
-            tr.getInt("eyes")
+            tr.getInt("eyes") == 1
         );
     }
 
 
     // Processor table contruct TabelRow
     // Above was not working until added
-    public Nematode(String name, int length, int limbs, String gender, int eyes) {
+    public Nematode(String name, float length, boolean limbs, String gender, boolean eyes) {
         this.name = name;
         this.length = length;
         this.limbs = limbs;
